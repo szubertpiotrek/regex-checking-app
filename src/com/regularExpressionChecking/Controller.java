@@ -30,6 +30,8 @@ public class Controller {
     private Queue<Runnable> stringList;
     private Queue<ScheduledFuture<?>> stringListHandles;
     private TextConverter textConverter;
+    private String filePath;
+    private int result;
 
     @FXML
     ProgressIndicator progressIndicator;
@@ -64,15 +66,14 @@ public class Controller {
                 new File(System.getProperty("user.home"))
         );
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("odt","*.odt"),
-                new FileChooser.ExtensionFilter("doc","*.doc"),
+                new FileChooser.ExtensionFilter("txt","*.txt"),
                 new FileChooser.ExtensionFilter("docx","*.docx")
         );
         File file = fileChooser.showOpenDialog(stage);
 
         if (file != null) {
             pathLabel.setText(file.getAbsolutePath());
-            System.out.println(file);
+            filePath = file.getAbsolutePath();
         }
     }
 
@@ -80,27 +81,31 @@ public class Controller {
     public void searchWord(){
         progressIndicator.setProgress(0);
         progressIndicator.setVisible(true);
-        String input = inputWord.getText();
-        //metoda przetwarzająca tekst na txt i do odczytu w formie listy
-        executorService =  Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        for(int i=0;i<1000000;i++){
-            stringList.add(new TextConverter(i));
-        }
 
-        stringList.stream()
-                .map(element -> executorService.submit(element))
-                .collect(Collectors.toCollection(ArrayDeque::new));
-        executorService.shutdown();
+//        executorService =  Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+//
+//        TextConverter textConverter = new TextConverter();
+//        List<String> textLineList = textConverter.readDocxFile(filePath);
+//        textLineList.stream().forEach(element -> stringList.add(new TextConverter(inputWord.getText(),element)));
+//
+//        stringList.stream()
+//                .map(element -> executorService.submit(element))
+//                .collect(Collectors.toCollection(ArrayDeque::new));
+//        executorService.shutdown();
+
+
+        textConverter = new TextConverter();
+        result = textConverter.startSeachingWord(filePath,inputWord.getText());
 
         Platform.runLater(new Runnable() {
             boolean condition=true;
             @Override
             public void run() {
                 while(condition){
-                    if(executorService.isTerminated()){
+                    if(textConverter.getTask().isDone()){
                         condition=false;
                         progressIndicator.setProgress(1);
-                        resultLabel.setText(inputWord.getText());
+                        resultLabel.setText(inputWord.getText() + ": " + result);
                     }
                     try {
                         Thread.sleep(10);
