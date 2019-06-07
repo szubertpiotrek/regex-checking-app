@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegularExpressionCheckingApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RegularExpressionCheckingApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wyrazenia_01.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Wyrazenia_01.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/ForkJoinText.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/TextConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RegularExpressionCheckingApp/com/regularExpressionChecking/TextConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/regularExpressionChecking/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/regularExpressionChecking/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/regularExpressionChecking/ForkJoinText.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/regularExpressionChecking/TextConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/regularExpressionChecking/TextConverter.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -110,12 +108,31 @@
     <session id="336736675">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="423" />
+          <entry key="java" value="535" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="423" />
+          <entry key="JAVA" value="535" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -140,8 +157,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="100" column="53" selection-start-line="100" selection-start-column="53" selection-end-line="100" selection-end-column="53" />
+            <state relative-caret-position="555">
+              <caret line="109" column="40" lean-forward="true" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -149,26 +166,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/sample.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/TextConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1358">
-              <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="154" column="56" selection-start-line="154" selection-start-column="56" selection-end-line="154" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1869#1877#0" expanded="true" />
-                <element signature="e#4301#4302#0" expanded="true" />
-                <element signature="e#4328#4329#0" expanded="true" />
+                <element signature="e#4909#4917#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -223,7 +228,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="1533" />
@@ -238,14 +243,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="regex-checking-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="regex-checking-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="regex-checking-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="regex-checking-app" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="regex-checking-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="regex-checking-app" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="regex-checking-app" type="b2602c69:ProjectViewProjectNode" />
@@ -266,6 +280,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,14 +297,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559906113147" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559906185397" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -298,15 +314,15 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.regularExpressionChecking" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -455,6 +471,7 @@
       <workItem from="1559321832459" duration="11713000" />
       <workItem from="1559683010516" duration="2679000" />
       <workItem from="1559898774892" duration="4929000" />
+      <workItem from="1559914466707" duration="753000" />
     </task>
     <servers />
   </component>
@@ -464,13 +481,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53326000" />
+    <option name="totallyTimeSpent" value="54636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="875" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3591123" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16408877" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -479,7 +495,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.252349" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.252349" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -545,20 +561,30 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/ForkJoinText.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/TextConverterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/poi-ooxml-3.6.jar!/org/apache/poi/util/PackageHelper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -572,8 +598,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="100" column="53" selection-start-line="100" selection-start-column="53" selection-end-line="100" selection-end-column="53" />
+        <state relative-caret-position="555">
+          <caret line="109" column="40" lean-forward="true" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -582,13 +608,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/regularExpressionChecking/TextConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1358">
-          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+        <state relative-caret-position="150">
+          <caret line="154" column="56" selection-start-line="154" selection-start-column="56" selection-end-line="154" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1869#1877#0" expanded="true" />
-            <element signature="e#4301#4302#0" expanded="true" />
-            <element signature="e#4328#4329#0" expanded="true" />
+            <element signature="e#4909#4917#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -31,6 +31,7 @@ public class Controller {
     private Queue<ScheduledFuture<?>> stringListHandles;
     private TextConverter textConverter;
     private String filePath;
+    private String fileExtension;
     private int result;
 
     @FXML
@@ -74,6 +75,7 @@ public class Controller {
         if (file != null) {
             pathLabel.setText(file.getAbsolutePath());
             filePath = file.getAbsolutePath();
+            fileExtension = fileChooser.getSelectedExtensionFilter().getDescription();
         }
     }
 
@@ -95,7 +97,7 @@ public class Controller {
 
         //stworzenie obiektu do wczytania pliku
         textConverter = new TextConverter();
-        result = textConverter.startSeachingWord(filePath,inputWord.getText());
+        result = textConverter.startSeachingWord(filePath,inputWord.getText(), fileExtension);
 
 
         //watek javafx do sprawdzenia stanu forkjoina

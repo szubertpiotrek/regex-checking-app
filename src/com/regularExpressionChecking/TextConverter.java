@@ -4,7 +4,10 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -62,7 +65,7 @@ public class TextConverter extends RecursiveTask<Integer> {
         return firstTaskResult + secondTaskResult;
     }
 
-    //statyczna metoda pozwalajaca zwrocic z pliku linie tesktu
+    //statyczna metoda pozwalajaca zwrocic z pliku docx linie tesktu
     public static List<String> readDocxFile(String filePath) {
         List<String> textLines = new LinkedList<String>();
         try {
@@ -81,6 +84,24 @@ public class TextConverter extends RecursiveTask<Integer> {
             e.printStackTrace();
         }
 
+        return textLines;
+    }
+
+    //statyczna metoda pozwalajaca zwrocic z pliku txt linie tesktu
+    public static List<String> readTxtFile(String filePath) {
+        List<String> textLines = new LinkedList<String>();
+
+        try (FileReader reader = new FileReader(filePath);
+             BufferedReader bufferedReader = new BufferedReader(reader)) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                textLines.add(line);
+            }
+
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
         return textLines;
     }
 
@@ -130,8 +151,14 @@ public class TextConverter extends RecursiveTask<Integer> {
     }
 
     //metoda tworząca liste linii i zadanie w ForkJoinPoolu
-    public int startSeachingWord(String filePath, String word){
-        List<String> textLines = TextConverter.readDocxFile(filePath);
+    public int startSeachingWord(String filePath, String word, String type){
+        List<String> textLines = new LinkedList<String>();
+        System.out.println(type);
+        if(type == "docx"){
+            textLines = TextConverter.readDocxFile(filePath);
+        }else if(type == "txt"){
+            textLines = TextConverter.readTxtFile(filePath);
+        }
         task = new TextConverter(textLines,word);
         return new ForkJoinPool(Runtime.getRuntime().availableProcessors()).invoke(task);
     }
