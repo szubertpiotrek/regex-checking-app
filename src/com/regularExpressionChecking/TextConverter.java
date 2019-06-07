@@ -17,6 +17,7 @@ public class TextConverter extends RecursiveTask<Integer> {
     private ForkJoinTask<Integer> task;
     private List<String> textLines;
     private String word;
+    private String wordCaps;
     private int start;
     private int end;
 
@@ -28,27 +29,31 @@ public class TextConverter extends RecursiveTask<Integer> {
     public TextConverter(List<String> textLines,String word){
         this.textLines = textLines;
         this.word = word;
+        this.wordCaps = createCaps(word);
         this.start = 0;
         this.end = textLines.size();
     }
 
-    public TextConverter(List<String> textLines, int start, int end){
-        System.out.println(start + " " + end);
+    public TextConverter(List<String> textLines, String word, int start, int end){
         this.start = start;
         this.end = end;
+        this.word = word;
+        this.wordCaps = createCaps(word);
+        this.textLines = textLines;
     }
 
+    //metoda forkjoina wykonujaca zadanie
     @Override
     protected Integer compute() {
 
         int length =end-start;
-        if(length<10){
+        if(length<3){
             return getSeachedWords();
         }
 
-        TextConverter textConverter1 = new TextConverter(textLines,0, Math.round(length/2));
+        TextConverter textConverter1 = new TextConverter(textLines, word, start, start + Math.round(length/2));
 
-        TextConverter textConverter2 = new TextConverter(textLines, Math.round(length/2), end);
+        TextConverter textConverter2 = new TextConverter(textLines, word, start + Math.round(length/2), end);
         textConverter2.fork();
 
         int firstTaskResult = textConverter1.compute();
@@ -57,6 +62,7 @@ public class TextConverter extends RecursiveTask<Integer> {
         return firstTaskResult + secondTaskResult;
     }
 
+    //statyczna metoda pozwalajaca zwrocic z pliku linie tesktu
     public static List<String> readDocxFile(String filePath) {
         List<String> textLines = new LinkedList<String>();
         try {
@@ -79,28 +85,78 @@ public class TextConverter extends RecursiveTask<Integer> {
     }
 
     //metoda liczaca fraze w liniach tekstu
-    private int getSeachedWords(){
+    public int getSeachedWords(){
         int result = 0;
         for (int i = start; i<end;i++) {
-            result += searchWord();
+            result += searchWord(this.textLines.get(i), this.word, this.wordCaps);
         }
         return result;
     }
 
     //metoda szukajaca fraze w linii kodu
-    private int searchWord(){
+    public int searchWord(String textLine, String word, String wordCaps) {
         int countWord = 0;
-       return countWord;
+        int j=0;
+        boolean check= false;
+        int first = 0;
+
+        for(int i=0;i<textLine.length()-word.length()+1;i++){
+            if((textLine.charAt(i)==word.charAt(0))||(textLine.charAt(i)==wordCaps.charAt(0))){
+                j=0;
+                while(j<word.length()){
+                    if((textLine.charAt(i+j)==word.charAt(0))&&(!check)&&(j!=0)){
+                        first = j;
+                        check = true;
+                    }
+                    if((textLine.charAt(i+j)==word.charAt(j))||(textLine.charAt(i+j)==wordCaps.charAt(j))){
+                        j++;
+                        if(j==word.length()){
+                            countWord++;
+                            check = false;
+                            i += first;
+                            first = 0;
+                        }
+                    }
+                    else{
+                        check = false;
+                        i += first;
+                        first = 0;
+                        j=word.length()+1;
+                    }
+                }
+            }
+        }
+        return countWord;
     }
 
+    //metoda tworząca liste linii i zadanie w ForkJoinPoolu
     public int startSeachingWord(String filePath, String word){
         List<String> textLines = TextConverter.readDocxFile(filePath);
         task = new TextConverter(textLines,word);
         return new ForkJoinPool(Runtime.getRuntime().availableProcessors()).invoke(task);
     }
 
+    //metoda do zwrócenia tasku do sprawdzenia stanu zadania
     public ForkJoinTask<Integer> getTask(){
         return task;
+    }
+
+    //metoda zwracajaca słowo z wielkimi literami
+    private String createCaps(String word){
+        String caps = "";
+        int letter;
+        for(int i=0; i<word.length();i++){
+            letter = word.charAt(i);
+            if((letter>64)&&(letter<91)){
+                letter+=32;
+                caps = caps + (char)letter;
+            }
+            else if((letter>96)&&(letter<123)){
+                letter -= 32;
+                caps = caps + (char)letter;
+            }
+        }
+        return caps;
     }
 
 }

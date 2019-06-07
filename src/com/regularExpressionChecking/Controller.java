@@ -66,8 +66,8 @@ public class Controller {
                 new File(System.getProperty("user.home"))
         );
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("txt","*.txt"),
-                new FileChooser.ExtensionFilter("docx","*.docx")
+                new FileChooser.ExtensionFilter("docx","*.docx"),
+                new FileChooser.ExtensionFilter("txt","*.txt")
         );
         File file = fileChooser.showOpenDialog(stage);
 
@@ -93,10 +93,12 @@ public class Controller {
 //                .collect(Collectors.toCollection(ArrayDeque::new));
 //        executorService.shutdown();
 
-
+        //stworzenie obiektu do wczytania pliku
         textConverter = new TextConverter();
         result = textConverter.startSeachingWord(filePath,inputWord.getText());
 
+
+        //watek javafx do sprawdzenia stanu forkjoina
         Platform.runLater(new Runnable() {
             boolean condition=true;
             @Override
